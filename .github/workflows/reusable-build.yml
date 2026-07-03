@@ -42,7 +42,7 @@ jobs:
 
             - name: Run tests
               if: inputs.run_test
-              run: python -m pytest app.py
+              run: python -m pytest
 
             - name: Set output (Passed)
               if: success()
