@@ -24,13 +24,18 @@ jobs:
 
     Image-scan:
         needs: [reusable-docker]
-        uses: ./.github/workflows/image-scan.yml
-        with: 
-            image_name: flask-app
-            tag: latest
+        runs-on: ubuntu-latest
+        steps:
+            - name: Scan Docker Image for Vulnerabilities
+              uses: aquasecurity/trivy-action@master
+              with:
+                image-ref: 'your-username/your-app:latest'
+                format: 'table'
+                exit-code: '1'
+                severity: 'CRITICAL,HIGH'
 
     deploy:
-        needs: [Image-scan]
+        needs: [reusable-docker]
         runs-on: ubuntu-latest
 
         environment:
