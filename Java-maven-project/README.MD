@@ -1,4 +1,4 @@
-# Java Maven CI/CD Demo
+# Java Maven CI/CD pipeline
 
 A minimal Java Maven application used to demonstrate a full **GitHub Actions
 CI/CD pipeline** built with **reusable workflows**:
